@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Google Search Extractor",
+    "version": "1.0.1",
+    "description": "Extract links from Google search results",
+    "permissions": ["activeTab", "storage","scripting"],
+    "action": {
+        "default_popup": "popup.html"  
+    },
+    "content_scripts": [
+        {
+          "matches": ["*://leetcode.com/problems/*"],
+          "css": ["popup.css"]
+        }
+      ]
+}
+  
