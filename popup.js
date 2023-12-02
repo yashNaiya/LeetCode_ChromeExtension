@@ -3,8 +3,8 @@ let results = document.getElementById("results");
 let searchQuery = document.getElementById("searchQuery");
 let linksList = document.getElementById("linksList");
 var linkElements;
-import SECRET_KEY from "./Config";
-import { CX } from "./Config";
+// import SECRET_KEY from "./Config";
+import { CX , SECRET_KEY } from "./Config.mjs";
 
 document.addEventListener('DOMContentLoaded', function () {
     // Check the current tab's URL
@@ -34,7 +34,7 @@ btn.addEventListener('click', async () => {
     fetch(`https://www.googleapis.com/customsearch/v1?key=${SECRET_KEY}8&cx=${CX}&q=${linkName[pos]}`)
         .then(response => response.json())
         .then(data => {
-    
+           console.log(data);
             data.items.forEach(item => {
                 if (!tab.url.includes(item.link) && !item.link.includes(tab.url) && !item.link.includes("solution") && !item.link.includes("discuss")) {
                     html += `<li><a class="extension-link" href=${item.link}>${item.link}</a></li>`
